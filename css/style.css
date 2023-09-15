@@ -316,6 +316,11 @@ body{
    
 
 }
+
+.projects__item:hover .projects__img{
+    transform: scale(1.1);
+    
+}
 .projects__link::before{
     position: absolute;
     content: '';
