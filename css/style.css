@@ -115,6 +115,13 @@ body{
     color:var(--color-text-main);
     font-size: 18px;
     font-weight: 400;
+    transition: color 0.5s ease-in-out;
+}
+.nav__link:hover{
+    color:var(--color-accent-main);
+}
+.nav__link:active{
+    color:#CBC6B2;
 }
 .header__contacts{
     margin-left: 207px;
@@ -159,8 +166,17 @@ body{
     font-size: 18px;
     font-weight: 400;
     color: var(--color-text-main);
+    text-decoration: underline;
+    transition: color 0.5s ease-in-out;
 
 }
+.hero__link:hover{
+    color:var(--color-accent-main);
+}
+.hero__link:active{
+    color:#CBC6B2;
+}
+
 .hero__image-small{
     display: block;
     grid-row:3;
@@ -390,10 +406,22 @@ body{
 .contacts__input{
     outline: none;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
     color: var(--color-text-main);
     background: #fff;
     width: 562px;
+    transition: border-bottom 0.5s ease-in-out;
+
+}
+
+.contacts__input:focus{
+    border-bottom:1px solid var(--color-accent-main);
+}
+.contacts__input-invalid{
+    border-bottom: 1px solid var(--color-form-error);
+}
+.contacts__input:valid{
+    border-bottom:1px solid var(--color-form-success);
 }
 
 .contacts__input:focus+.contacts__label, .contacts__input:valid+.contacts__label{
@@ -406,6 +434,9 @@ body{
     background-color: transparent;
     cursor: pointer;
 }
+
+
+
 .contacts__btn{
     background-color: var(--color-text-main);
     padding: 12px 20px;
@@ -414,6 +445,21 @@ body{
     font-size: 16px;
     font-weight: 400;
     line-height: 140%; /* 22.4px */
+    transition: background-color 0.5s ease-in-out,
+    color 0.5s ease-in-out;
+}
+
+.contacts__btn:hover{
+    background-color: var(--color-accent-main);
+    color:var(--color-text-main)
+}
+.contacts__btn:active{
+    background-color: #CBC6B2;
+    color: var(--color-text-main);
+}
+.contacts__btn:disabled{    
+    background-color: rgba(33, 37, 41, 0.50);
+    color: rgba(255, 255, 255, 0.5);
 }
 .contacts__list{
     display: flex;
@@ -461,20 +507,78 @@ body{
 }
 
 @media(max-width:739.99px) {
+    :root{
+        --offset:60px;
+    }
+    .logo{
+        margin-right: 0;
+    }
+    .header__wrap{
+        justify-content: space-between;
+    }
+    .header__contacts{
+        margin-left: 0;
+    }
     .hero__title{
         font-size: 48px;
+        margin-bottom: 12px;
     }
     .hero__grid{
         display: block;
+    }
+    .hero__descr{
+        margin-bottom: 12px;
+    }
+    .hero__link{
+        display: block;
+        margin-bottom: 12px;
+    }
+    .hero__image-small{
+        display: none;
     }
     .grid{
         grid-template-columns: repeat(1,1fr);
     }
     .heading{
-        font-size: 24px;
+        font-size: 36px;
+    }
+    .steps-item{
+        flex-direction: column;
+    }
+    .steps-item__title{
+        font-size: 28px;
+    }
+    .steps-item__descr{
+        font-size: 14px;
+    }
+    .projects__img{
+        max-height: 400px;
     }
     .testimonials__list{
         flex-direction: column;
         gap: 16px;
+    }
+    .footer__wrap{
+        flex-direction: column;
+        align-items: center ;
+    }
+    .footer__copyright{
+        order: 3;
+        text-align: center;
+    }
+    .footer__policy{
+        order:2;    
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__social{
+        order: 1;
+        margin-bottom: 24px;
+    }
+    .footer__policy-link:not(:last-child):after{
+        content: none;
+        margin: 0;
     }
 }
